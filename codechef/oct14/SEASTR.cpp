@@ -17,12 +17,12 @@ int main()
 		// memset(arr, 0, sizeof(arr[0][0])*100005*2);
 		m = s.length();
 		n = t.length();
-		if(m > n && m-n > k)
+		if(m > n && (m-n)*a > k)
 		{
 			cout<<-1<<endl;
 			continue;
 		}
-		else if(m < n && n-m > k)
+		else if(m < n && (n-m)*a > k)
 		{
 			cout<<-1<<endl;
 			continue;
@@ -48,8 +48,8 @@ int main()
 		{
 			ind++;
 			arr[ind%2][0] = a*(i+1);
-			int start = max(0,i+1-k);
-			int end = min(i+1+k,n-1);
+			int start = max(0,i+1+n-m-k);
+			int end = min(i+1+n-m+k,n-1);
 			for (int j =start; j <= end ; ++j)
 			{
 				int cost = (s[i] == t[j])?0:b;
