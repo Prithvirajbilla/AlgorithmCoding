@@ -1,0 +1,2 @@
+UseCase1 Lock1,Lock3
+UseCase2 Lock1,Lock3,Lock1

@@ -1,0 +1,22 @@
+UseCase1->[Lock1, Lock2]
+UseCase2->[Lock2, Lock1]
+
+UseCase1=[Lock1, Lock2]
+--------------
+UseCase1=[Lock1, Lock2]
+UseCase2=[Lock2, Lock1]
+UseCase1=[Lock1, Lock2]
+--------------
+UseCase1=[Lock1, Lock2]
+UseCase2=[Lock2, Lock1]
+--------------
+UseCase2=[Lock2, Lock1]
+--------------
+UseCase1=[Lock1, Lock2]
+UseCase2=[Lock2, Lock1]
+UseCase2=[Lock2, Lock1]
+--------------
+UseCase1=[Lock1, Lock2]
+UseCase2=[Lock2, Lock1]
+--------------
+UseCase1,UseCase2
