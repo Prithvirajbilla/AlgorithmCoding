@@ -1,4 +1,0 @@
-UseCase1,UseCase2
-UseCase1,UseCase4
-UseCase2,UseCase3
-UseCase3,UseCase4
