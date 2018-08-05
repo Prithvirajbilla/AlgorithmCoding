@@ -1,47 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
-int tree[100000];
-int array[100000];
-int n;
-int read(int a)
+#define ll long long int
+int t;
+pair<int,int> array[1000000];
+ll ans = 0;
+ll tree[1000000];
+int k;
+int n,m;
+ll read(int x)
 {
-	int ans = 0;
-	int k = a+1;
-	while(k >= 0)
+	ll sum = 0;
+	while(x > 0)
 	{
-		ans += tree[k];
-		k -= (k & -k);
+		sum+=tree[x];
+		x -= x& -x;
 	}
-	return ans;
+	return sum;
 }
-void update(int a,int b)
+void update(int x,int y)
 {
-	tree[a+1]+=b;
-	int k = a+1;
-	while(k < n+1)
+	while(x <= m)
 	{
-		k += (k &-k);
-		tree[k] +=b;
+		tree[x] +=y;
+		x+= x&-x;
 	}
 }
-
 int main()
-{
-	int n;
-	cin>>n;
-	memset(array,0,sizeof(array));
-	for (int i = 0; i < n; ++i)
+{	
+	cin>>t;
+	for (int i = 1; i <= t; ++i)
 	{
-		cin>>array[i];
-	}
-	for (int i = 1; i <= n; ++i)
-	{
-		tree[i] += array[i-1];
-		int k = i;
-		while(k > n+1)
+		scanf("%d %d %d",&n,&m,&k);
+		ans = 0;
+		memset(array,0,sizeof(array));
+		memset(tree,0,sizeof(tree));
+		for (int j = 0; j < k; ++j)
 		{
-			k += (k & -k);
-			tree[k] += array[i-1];
+			int a,b;
+			scanf("%d %d",&a,&b);
+			array[j] = make_pair(a,b);
 		}
+		sort(array,array+k);
+		// quickSort(array,0,k-1);
+		for (int j = 0; j < k; ++j)
+		{
+			update(array[j].second,1);
+			ans+=(j+1-read(array[j].second));
+		}
+		printf("Test case %d: %lld\n",i,ans);
 	}
+
 }
